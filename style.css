@@ -205,6 +205,13 @@ p{
   text-align: justify;
 }
 
+.comic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
