@@ -55,9 +55,12 @@ function handleComic(comicObj: ComicObj): void {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' } as const;
     const { title, img, alt, year, month, day} = comicObj;
     if(comicTitle) comicTitle.textContent = title; // Note: never use innerHTML for unsanitized input you don't control
-    if(displayComic) displayComic.src = img;
+    if(displayComic) {
+        displayComic.src = img;
+        displayComic.setAttribute('alt', alt);
+    };
     if(comicAlt) comicAlt.textContent = alt;
-    const date = new Date(Date.UTC(year, month, day, 0, 0, 0));
+    const date = new Date(year, month, day, 0, 0, 0);
     if(uploadDate) uploadDate.textContent = date.toLocaleDateString(undefined, options);
 }
 
